@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{%block style%}
+<style>
+    a:hover{
+        background-size: 100%;
+        background-color: rgb(186, 218, 247);
+        color: black;
+    }
+    form{
+        font-size: 500%;
+        background-color: black;
+    }
+    div{
+        font-size: 500%;
+        background-color: black;
+    }
+    .regi{
+        color: blue;
+    }
+</style>
+{%endblock%}
+{% block content %}
+<div class="regi">
+    <h2>User registarion</h2>
+    <form method="POST" novalidate>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Register</button>
+    </form>
+    <p>already have an account?<a href="login/">login here</a></p>
+</div>
+    {% endblock %}

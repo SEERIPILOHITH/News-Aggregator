@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{%block style%}
+<style>
+    a:hover{
+        background-size: 100%;
+        background-color: rgb(186, 218, 247);
+        color: black;
+    }
+</style>
+{%endblock%}
+{%block content%}
+<h2>your news feed</h2>
+<ul>
+    {% for article in news_list%}
+        <li>
+            <h3>{{article.title}}</h3>
+            <p>{{article.desciption}}</p>
+            <a href="{{article.url}}"> read more</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{%block styles%}
+<style>
+    div{
+
+        padding: 10px 0px;
+        margin-left: 20%;
+        margin-top: 50px;
+    }
+    a{
+        text-decoration: solid;
+        color: rgb(12, 194, 240);
+        
+    }
+    
+
+    a:hover{
+        background-size: 100%;
+        background-color: rgb(186, 218, 247);
+        color: black;
+    }
+
+    button:hover{
+        color: rgb(252, 252, 252);
+        background-color: dimgrey
+    }
+
+</style>
+{%endblock%}
+
+{% block content %}
+<div style="background-color: black;">
+    <h2 style="font-size: 200%;">Login</h2>
+    <ul>
+        {% for message in messages %}
+            <li>{{message}}</li>
+            {% endfor %}
+    </ul>
+    
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            <label style="font-size: 125%;" for="username">Username :  </label>
+            <input type="text" name="username" id="username" required>
+           <br><br> <label style="font-size: 125%;" for="password">password :  </label>
+            <input type="text" name="password" id="password" required>
+            <br><br><br><button type="submit">login</button>
+        </form>
+        <p>Dont have an account?<a href="{% url 'register' %}">register here</a></p>
+    </div>
+    <style>
+        div{
+            margin-right: 20%;
+        }
+    </style>
+    
+{% endblock %}

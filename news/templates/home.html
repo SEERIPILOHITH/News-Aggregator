@@ -1,0 +1,24 @@
+{%extends 'base.html' %}
+{%block styles%}
+<style>
+        a{
+                background-size: 200%;
+                height: 10%;
+                width: 1000%;
+        }
+        a:hover{
+                background-size: 100%;
+                background-color: rgb(186, 218, 247);
+                color: black;
+        }
+</style>
+
+{%endblock%}
+{% block content %}
+        <h2 style="font-size: 500%;">welcome to News Aggregator</h2>
+        {%if not user.is_authenticated%}
+        <p style ="font-size: 200%;">Sign up or log in to start personalizing your new feed</p>
+        {%else%}
+        <p style="font-size: 200%;">This website under development</p>
+        {%endif%}
+{% endblock %}

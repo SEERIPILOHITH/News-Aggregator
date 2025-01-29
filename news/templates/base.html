@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title style="font-family: 'Courier New', Courier, monospace ;">News Aggregator</title>
+        <link rel="stylesheet" href="{% static 'base1.css' %}" >  
+        {%block styles %}
+        <style>
+            footer{
+                background-color: black;
+                font-style: italic;
+                align-items: end;
+            }
+        </style>
+        {%endblock%}
+    </head>
+    <body>
+        <header>
+            <h1 style="text-align: center; ">News Aggregator</h1>
+            <nav >
+                <a href="{%url 'home' %}">HOME</a>
+                {%if user.is_authenticated %}
+                <a href="profile/">profile</a>
+                <a href="dashboard/">DASHBOARD</a>
+                <a href="prefernces/">Preferences</a>
+                <a href="bookmark/">BOOKMARKS</a>
+                <a href="logout/">LOGOUT</a>
+                {%else%}
+                <a href="login/">LOGIN</a>                
+                <a href="register/">REGISTER</a>
+                {%endif%}
+            </nav>
+        </header>
+        <main>
+            {% block content %}{% endblock%}
+        </main>
+    <footer>
+        <p>contact us</p>
+    </footer>
+    </body>
+</html>

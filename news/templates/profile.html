@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+{%block styles%}
+<style>
+h2{
+    color: brown;
+    text-align: left;
+}
+</style>
+{%endblock%}
+{%block content%}
+{%for x in users%}
+    {%if x.user.is_authenticated%}
+        <h2>welcome {{x.user}}</h2>
+        <h3>intrested feed:  {{x.topics}}</h3>
+    {%endif%}
+{%endfor%}
+{%endblock%}
